@@ -1,0 +1,61 @@
+.background {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    overflow: hidden;
+    pointer-events: none;
+    background: #050816;
+}
+
+.background-grid {
+    position: absolute;
+    inset: -15%;
+    opacity: 0.15;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    transform: perspective(900px) rotateX(62deg) translateY(20%);
+    transform-origin: center bottom;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 28%, black 62%, transparent 100%);
+}
+
+.background-glow {
+    position: absolute;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+    filter: blur(125px);
+    opacity: 0.1;
+}
+
+.background-glow-one {
+    top: -280px;
+    left: -190px;
+    background: var(--primary);
+}
+
+.background-glow-two {
+    right: -250px;
+    bottom: -280px;
+    background: var(--secondary);
+}
+
+.background-vignette {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.22) 100%);
+}
+
+@media (max-width: 768px) {
+    .background-grid {
+        opacity: 0.1;
+        background-size: 50px 50px;
+    }
+
+    .background-glow {
+        width: 350px;
+        height: 350px;
+    }
+}

@@ -1,0 +1,134 @@
+.about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+    gap: 18px;
+}
+
+.about-card {
+    position: relative;
+    min-height: 475px;
+    padding: 44px;
+    overflow: hidden;
+    border-radius: 25px;
+    background:
+        radial-gradient(
+            circle at 100% 0%,
+            rgba(34, 211, 238, 0.08),
+            transparent 35%
+        ),
+        var(--card);
+}
+
+.about-card::after {
+    content: '';
+    position: absolute;
+    right: -100px;
+    bottom: -120px;
+    width: 330px;
+    height: 330px;
+    border: 1px solid rgba(34, 211, 238, 0.11);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 45px rgba(34, 211, 238, 0.015),
+        0 0 0 90px rgba(99, 102, 241, 0.012);
+}
+
+.about-label {
+    color: var(--primary);
+    font: 8px 'DM Mono', monospace;
+    letter-spacing: 0.13em;
+    text-transform: uppercase;
+}
+
+.about-description {
+    position: relative;
+    z-index: 1;
+    max-width: 690px;
+    margin-top: 55px;
+    color: #d9dee6;
+    font-size: 18px;
+    line-height: 1.8;
+    letter-spacing: -0.02em;
+}
+
+.about-secondary {
+    margin-top: 21px;
+    color: #748095;
+    font-size: 12px;
+    line-height: 1.85;
+}
+
+.about-principles {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.about-principle {
+    min-height: 225px;
+    padding: 24px;
+    border-radius: 20px;
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        background 0.35s ease;
+}
+
+.about-principle:hover {
+    transform: translateY(-4px);
+    border-color: rgba(34, 211, 238, 0.18);
+    background: rgba(34, 211, 238, 0.035);
+}
+
+.about-principle > span {
+    color: #4e5b70;
+    font: 8px 'DM Mono', monospace;
+}
+
+.about-principle h3 {
+    margin-top: 58px;
+    color: #edf1f5;
+    font-size: 17px;
+    font-weight: 650;
+    letter-spacing: -0.025em;
+}
+
+.about-principle p {
+    margin-top: 9px;
+    color: #697589;
+    font-size: 10px;
+    line-height: 1.75;
+}
+
+@media (max-width: 950px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-card {
+        min-height: 0;
+    }
+}
+
+@media (max-width: 560px) {
+    .about-card {
+        padding: 30px;
+    }
+
+    .about-description {
+        margin-top: 38px;
+        font-size: 16px;
+    }
+
+    .about-principles {
+        grid-template-columns: 1fr;
+    }
+
+    .about-principle {
+        min-height: 0;
+    }
+
+    .about-principle h3 {
+        margin-top: 35px;
+    }
+}
