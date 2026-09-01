@@ -149,7 +149,8 @@ export default function NotFound() {
                 const liveUrl = repo.has_pages
                   ? repo.name.toLowerCase() === `${username}.github.io`
                     ? `https://${username}.github.io/`
-                    : `https://${username}.github.io/${repo.name}/`
+                    :
+repo.homepage ? 'https://${username}.github.io/${repo.homepage}/` :  `https://${username}.github.io/${repo.name}/`
                   : "";
 
                 return (
