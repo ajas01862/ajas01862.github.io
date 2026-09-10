@@ -145,11 +145,12 @@ export default function NotFound() {
             </div>
           ) : (
             <div className="notfound-grid-list">
-              {filteredRepos.map((repo) => {
+              {filteredRepos.map((repo, ix) => {
                 const liveUrl = repo.has_pages
                   ? repo.name.toLowerCase() === `${username}.github.io`
                     ? `https://${username}.github.io/`
-                    : `https://${username}.github.io/${repo.name}/`
+                    :
+repo.homepage ? repo.homepage :  `https://${username}.github.io/${repo.name}/`
                   : "";
 
                 return (
@@ -157,7 +158,7 @@ export default function NotFound() {
                     <div className="notfound-card-glow" />
                     <div className="notfound-card-top">
                       <span className="notfound-card-index">
-                        {String(repo.name.length).padStart(2, "0")}
+                        {String(ix + 1).padStart(2, "0")}
                       </span>
                       {repo.has_pages && <span className="notfound-live">LIVE</span>}
                     </div>
