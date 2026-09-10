@@ -6,7 +6,7 @@ const username = "ajas01862";
 export default function NotFound() {
   const [repos, setRepos] = useState([]);
   const [search, setSearch] = useState("");
-  const [filter, setFilter] = useState("pages");
+  const [filter, setFilter] = useState("all");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -75,7 +75,7 @@ export default function NotFound() {
       <div className="notfound-container">
         <section className="notfound-hero">
           <a className="notfound-brand" href="/" aria-label="Go home">
-            <img src="/img/MyLogoIcon.png" alt="Ajas logo" />
+            <img src="/img/logo-192.png" alt="Ajas logo" width="192" height="192" />
           </a>
 
           <div className="notfound-badge">
@@ -126,8 +126,8 @@ export default function NotFound() {
                 onChange={(event) => setFilter(event.target.value)}
                 aria-label="Filter projects"
               >
-                <option value="pages">GitHub Pages</option>
                 <option value="all">All Repositories</option>
+                <option value="pages">GitHub Pages</option>
                 <option value="no-pages">Without Pages</option>
               </select>
             </div>
@@ -145,12 +145,11 @@ export default function NotFound() {
             </div>
           ) : (
             <div className="notfound-grid-list">
-              {filteredRepos.map((repo, ix) => {
+              {filteredRepos.map((repo, index) => {
                 const liveUrl = repo.has_pages
                   ? repo.name.toLowerCase() === `${username}.github.io`
                     ? `https://${username}.github.io/`
-                    :
-repo.homepage ? repo.homepage :  `https://${username}.github.io/${repo.name}/`
+                    : `https://${username}.github.io/${repo.name}/`
                   : "";
 
                 return (
@@ -158,7 +157,7 @@ repo.homepage ? repo.homepage :  `https://${username}.github.io/${repo.name}/`
                     <div className="notfound-card-glow" />
                     <div className="notfound-card-top">
                       <span className="notfound-card-index">
-                        {String(ix + 1).padStart(2, "0")}
+                        {String(index + 1).padStart(2, "0")}
                       </span>
                       {repo.has_pages && <span className="notfound-live">LIVE</span>}
                     </div>

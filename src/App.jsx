@@ -13,125 +13,123 @@ import NotFound from './Pages/404';
 const SITE_URL = 'https://ajas.qzz.io';
 
 function setMeta(name, content) {
-    let element = document.head.querySelector(
-        `meta[name="${name}"]`,
-    );
+  let element = document.head.querySelector(`meta[name="${name}"]`);
 
-    if (!element) {
-        element = document.createElement('meta');
-        element.name = name;
-        document.head.appendChild(element);
-    }
+  if (!element) {
+    element = document.createElement('meta');
+    element.setAttribute('name', name);
+    document.head.appendChild(element);
+  }
 
-    element.content = content;
+  element.setAttribute('content', content);
 }
 
-function setCanonical(url) {
-    let element = document.head.querySelector(
-        'link[rel="canonical"]',
-    );
+function setCanonical(pathname) {
+  let canonical = document.head.querySelector('link[rel="canonical"]');
 
-    if (!element) {
-        element = document.createElement('link');
-        element.rel = 'canonical';
-        document.head.appendChild(element);
-    }
+  if (!canonical) {
+    canonical = document.createElement('link');
+    canonical.setAttribute('rel', 'canonical');
+    document.head.appendChild(canonical);
+  }
 
-    element.href = url;
+  const normalizedPath =
+    pathname === '/' || pathname === '' ? '/' : pathname;
+
+  canonical.setAttribute('href', `${SITE_URL}${normalizedPath}`);
 }
 
 export default function App() {
-    const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
-    const isNotFound =
-        window.location.pathname !== '/' &&
-        window.location.pathname !== '';
+  const isNotFound =
+    window.location.pathname !== '/' &&
+    window.location.pathname !== '';
 
-    useEffect(() => {
-        if (isNotFound) {
-            document.title = '404 — Page Not Found | Ajas';
-            setMeta('robots', 'noindex, nofollow');
-            setMeta('googlebot', 'noindex, nofollow');
-            setCanonical(`${SITE_URL}${window.location.pathname}`);
-            return;
-        }
+  useEffect(() => {
+    document.title = isNotFound
+      ? '404 — Page Not Found | Ajas'
+      : 'Ajas — Developer, Builder & Learner';
 
-        document.title = 'Ajas — Developer, Builder & Learner';
+    setMeta(
+      'description',
+      isNotFound
+        ? 'The page you requested could not be found on Ajas’s portfolio.'
+        : 'Ajas is a developer building practical web applications with React and JavaScript while exploring backend systems, databases, automation, and software engineering.',
+    );
 
-        setMeta(
-            'robots',
-            'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-        );
+    setMeta(
+      'robots',
+      isNotFound
+        ? 'noindex, nofollow, noarchive'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    );
 
-        setMeta(
-            'googlebot',
-            'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
-        );
+    setMeta(
+      'googlebot',
+      isNotFound
+        ? 'noindex, nofollow, noarchive'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    );
 
-        setCanonical(`${SITE_URL}/`);
-    }, [isNotFound]);
+    setCanonical(window.location.pathname);
+  }, [isNotFound]);
 
-    useEffect(() => {
-        let cancelled = false;
-        let loadingFallback;
+  useEffect(() => {
+    let cancelled = false;
+    let loadingFallback;
 
-        const finishLoading = () => {
-            if (cancelled) {
-                return;
-            }
+    const finishLoading = () => {
+      if (cancelled) {
+        return;
+      }
 
-            requestAnimationFrame(() => {
-                window.setTimeout(() => {
-                    if (!cancelled) {
-                        setLoaded(true);
-                    }
-                }, 250);
-            });
-        };
+      requestAnimationFrame(() => {
+        window.setTimeout(() => {
+          if (!cancelled) {
+            setLoaded(true);
+          }
+        }, 250);
+      });
+    };
 
-        if (document.readyState === 'complete') {
-            finishLoading();
-        } else {
-            window.addEventListener('load', finishLoading, {
-                once: true,
-            });
-        }
-
-        loadingFallback = window.setTimeout(finishLoading, 2500);
-
-        return () => {
-            cancelled = true;
-            window.clearTimeout(loadingFallback);
-            window.removeEventListener('load', finishLoading);
-        };
-    }, []);
-
-    if (isNotFound) {
-        return <NotFound />;
+    if (document.readyState === 'complete') {
+      finishLoading();
+    } else {
+      window.addEventListener('load', finishLoading, { once: true });
     }
 
-    return (
-        <>
-            {!loaded && <Loader />}
+    loadingFallback = window.setTimeout(finishLoading, 2500);
 
-            <div
-                className={`app ${
-                    loaded ? 'app-loaded' : ''
-                }`}
-            >
-                <Background />
-                <Navbar />
+    return () => {
+      cancelled = true;
+      window.clearTimeout(loadingFallback);
+      window.removeEventListener('load', finishLoading);
+    };
+  }, []);
 
-                <main>
-                    <Hero />
-                    <About />
-                    <Skills />
-                    <Projects />
-                    <Contact />
-                </main>
+  if (isNotFound) {
+    return <NotFound />;
+  }
 
-                <Footer />
-            </div>
-        </>
-    );
+  return (
+    <>
+      {!loaded && <Loader />}
+
+      <div className={`app ${loaded ? 'app-loaded' : ''}`}>
+        <Background />
+        <Navbar />
+
+        <main>
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Contact />
+        </main>
+
+        <Footer />
+      </div>
+    </>
+  );
 }

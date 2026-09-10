@@ -1,7 +1,7 @@
 {
   "name": "Ajas — Developer, Builder & Learner",
   "short_name": "Ajas",
-  "description": "Ajas's developer portfolio.",
+  "description": "Ajas builds practical web applications, automation, backend systems, and modern interfaces.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
@@ -9,13 +9,13 @@
   "theme_color": "#050816",
   "icons": [
     {
-      "src": "/img/icon-192.png",
+      "src": "/img/MyLogoIcon.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/img/icon-512.png",
+      "src": "/img/MyLogoIcon.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
