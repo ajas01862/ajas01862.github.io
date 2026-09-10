@@ -5,88 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#050816" />
     <meta name="color-scheme" content="dark" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
-    <title>Ajas | Web Developer & Programmer</title>
+    <title>Ajas — Developer, Builder & Learner</title>
 
     <meta
       name="description"
-      content="Ajas's personal portfolio showcasing web development, programming skills, projects, experience, and ways to get in touch."
+      content="Ajas is a developer building practical web applications, automation, backend systems, and modern interfaces with React, JavaScript, and Node.js."
     />
     <meta
       name="keywords"
-      content="Ajas, Domarov, Muhammed Ajas P N, portfolio, web developer, programmer, JavaScript, React, HTML, CSS, PHP, MySQL, software developer"
+      content="Ajas, Domarov, Muhammed Ajas P N, developer, web developer, JavaScript, React, Node.js, backend, automation, MongoDB, portfolio"
     />
     <meta name="author" content="Muhammed Ajas P N" />
     <meta name="creator" content="Muhammed Ajas P N" />
     <meta name="publisher" content="Muhammed Ajas P N" />
     <meta
       name="robots"
-      content="index, follow, max-image-preview:large"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
     <meta
       name="googlebot"
-      content="index, follow, max-image-preview:large"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
     />
 
     <link rel="canonical" href="https://ajas.qzz.io/" />
-    <link
-      rel="sitemap"
-      type="application/xml"
-      href="/sitemap.xml"
-    />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
-    <!-- <link
-      rel="icon"
-      href="/img/favicon.ico?v=2"
-      type="image/x-icon"
-    /> -->
-    <link
-      rel="icon"
-      href="/img/MyLogoIcon.png?v=2"
-      type="image/x-icon"
-    />
-    <link
-      rel="apple-touch-icon"
-      href="/img/MyLogoIcon.png?v=2"
-    />
+    <link rel="icon" href="/myLogo.ico?v=3" type="image/x-icon" />
+    <link rel="shortcut icon" href="/myLogo.ico?v=3" type="image/x-icon" />
+    <link rel="icon" href="/img/MyLogoIcon.png?v=3" type="image/png" />
+    <link rel="apple-touch-icon" href="/img/MyLogoIcon.png?v=3" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <meta property="og:locale" content="en_US" />
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Ajas | Portfolio" />
-    <meta
-      property="og:title"
-      content="Ajas | Web Developer & Programmer"
-    />
+    <meta property="og:site_name" content="Ajas" />
+    <meta property="og:title" content="Ajas — Developer, Builder & Learner" />
     <meta
       property="og:description"
-      content="Ajas's personal portfolio showcasing web development, programming skills, projects, and contact information."
+      content="Ajas builds practical web applications, automation, backend systems, and modern interfaces."
     />
     <meta property="og:url" content="https://ajas.qzz.io/" />
     <meta
       property="og:image"
-      content="https://ajas.qzz.io/img/logo.png"
+      content="https://ajas.qzz.io/img/og-image.png"
     />
+    <meta
+      property="og:image:secure_url"
+      content="https://ajas.qzz.io/img/og-image.png"
+    />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Ajas portfolio preview"
+      content="Ajas — Developer, Builder & Learner"
     />
 
-    <meta
-      name="twitter:card"
-      content="summary_large_image"
-    />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta
       name="twitter:title"
-      content="Ajas | Web Developer & Programmer"
+      content="Ajas — Developer, Builder & Learner"
     />
     <meta
       name="twitter:description"
-      content="Ajas's personal portfolio showcasing web development, programming skills, projects, and contact information."
+      content="Ajas builds practical web applications, automation, backend systems, and modern interfaces."
     />
     <meta
       name="twitter:image"
-      content="https://ajas.qzz.io/img/logo.png"
+      content="https://ajas.qzz.io/img/og-image.png"
     />
+    <meta
+      name="twitter:image:alt"
+      content="Ajas — Developer, Builder & Learner"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Muhammed Ajas P N",
+        "alternateName": ["Ajas", "Domarov"],
+        "url": "https://ajas.qzz.io/",
+        "image": "https://ajas.qzz.io/img/MyLogoIcon.png",
+        "jobTitle": "Developer",
+        "description": "Developer building practical web applications, automation, backend systems, and modern interfaces.",
+        "sameAs": [
+          "https://github.com/ajas01862",
+          "https://www.linkedin.com/in/muhammed-ajas-p-n",
+          "https://www.instagram.com/ajas_1052/"
+        ],
+        "knowsAbout": [
+          "JavaScript",
+          "React",
+          "Node.js",
+          "Web Development",
+          "Backend Development",
+          "Automation",
+          "MongoDB"
+        ]
+      }
+    </script>
 
     <!-- Google Tag Manager -->
     <script>
@@ -98,34 +119,18 @@
         }
 
         w.__GTM_INITIALIZED__ = true;
-
-        w[l].push({
-          "gtm.start": new Date().getTime(),
-          event: "gtm.js",
-        });
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
 
         var firstScript = d.getElementsByTagName(s)[0];
         var script = d.createElement(s);
-        var dataLayerQuery =
-          l !== "dataLayer" ? "&l=" + l : "";
+        var dataLayerQuery = l !== "dataLayer" ? "&l=" + l : "";
 
         script.async = true;
         script.src =
-          "https://www.googletagmanager.com/gtm.js?id=" +
-          i +
-          dataLayerQuery;
+          "https://www.googletagmanager.com/gtm.js?id=" + i + dataLayerQuery;
 
-        firstScript.parentNode.insertBefore(
-          script,
-          firstScript,
-        );
-      })(
-        window,
-        document,
-        "script",
-        "dataLayer",
-        "GTM-54FBHPPW",
-      );
+        firstScript.parentNode.insertBefore(script, firstScript);
+      })(window, document, "script", "dataLayer", "GTM-54FBHPPW");
     </script>
     <!-- End Google Tag Manager -->
 
@@ -137,54 +142,23 @@
         }
 
         window.__CLARITY_INITIALIZED__ = true;
-
         window[clarityName] =
           window[clarityName] ||
           function () {
-            (window[clarityName].q =
-              window[clarityName].q || []).push(
+            (window[clarityName].q = window[clarityName].q || []).push(
               arguments,
             );
           };
 
         var script = document.createElement("script");
-
         script.async = true;
-        script.src =
-          "https://www.clarity.ms/tag/" + projectId;
+        script.src = "https://www.clarity.ms/tag/" + projectId;
 
-        var firstScript =
-          document.getElementsByTagName("script")[0];
-
-        firstScript.parentNode.insertBefore(
-          script,
-          firstScript,
-        );
-      })(
-        window,
-        document,
-        "clarity",
-        "wrpreeqolu",
-      );
+        var firstScript = document.getElementsByTagName("script")[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+      })(window, document, "clarity", "wrpreeqolu");
     </script>
     <!-- End Microsoft Clarity -->
-
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Muhammed Ajas P N",
-        "alternateName": ["Ajas", "Domarov"],
-        "url": "https://ajas.qzz.io/",
-        "jobTitle": "Web Developer",
-        "description": "Web developer and programmer focused on building practical, modern web applications.",
-        "sameAs": [
-          "https://github.com/ajas01862",
-          "https://www.linkedin.com/in/muhammed-ajas-p-n",
-          "https://www.instagram.com/ajas_1052/"
-        ]
-      }
-    </script>
   </head>
 
   <body>
@@ -203,6 +177,5 @@
     <div id="root"></div>
 
     <script type="module" src="/src/main.jsx"></script>
-
   </body>
 </html>

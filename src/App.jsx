@@ -10,8 +10,66 @@ import Footer from './components/Footer/Footer';
 import Background from './components/Background/Background';
 import NotFound from './Pages/404';
 
+const SITE_URL = 'https://ajas.qzz.io';
+
+function setMeta(name, content) {
+    let element = document.head.querySelector(
+        `meta[name="${name}"]`,
+    );
+
+    if (!element) {
+        element = document.createElement('meta');
+        element.name = name;
+        document.head.appendChild(element);
+    }
+
+    element.content = content;
+}
+
+function setCanonical(url) {
+    let element = document.head.querySelector(
+        'link[rel="canonical"]',
+    );
+
+    if (!element) {
+        element = document.createElement('link');
+        element.rel = 'canonical';
+        document.head.appendChild(element);
+    }
+
+    element.href = url;
+}
+
 export default function App() {
     const [loaded, setLoaded] = useState(false);
+
+    const isNotFound =
+        window.location.pathname !== '/' &&
+        window.location.pathname !== '';
+
+    useEffect(() => {
+        if (isNotFound) {
+            document.title = '404 — Page Not Found | Ajas';
+            setMeta('robots', 'noindex, nofollow');
+            setMeta('googlebot', 'noindex, nofollow');
+            setCanonical(`${SITE_URL}${window.location.pathname}`);
+            return;
+        }
+
+        document.title = 'Ajas — Developer, Builder & Learner';
+
+        setMeta(
+            'robots',
+            'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        );
+
+        setMeta(
+            'googlebot',
+            'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+        );
+
+        setCanonical(`${SITE_URL}/`);
+    }, [isNotFound]);
 
     useEffect(() => {
         let cancelled = false;
@@ -34,35 +92,19 @@ export default function App() {
         if (document.readyState === 'complete') {
             finishLoading();
         } else {
-            window.addEventListener(
-                'load',
-                finishLoading,
-                { once: true },
-            );
+            window.addEventListener('load', finishLoading, {
+                once: true,
+            });
         }
 
-        loadingFallback = window.setTimeout(
-            finishLoading,
-            2500,
-        );
+        loadingFallback = window.setTimeout(finishLoading, 2500);
 
         return () => {
             cancelled = true;
-
-            window.clearTimeout(
-                loadingFallback,
-            );
-
-            window.removeEventListener(
-                'load',
-                finishLoading,
-            );
+            window.clearTimeout(loadingFallback);
+            window.removeEventListener('load', finishLoading);
         };
     }, []);
-
-    const isNotFound =
-        window.location.pathname !== '/' &&
-        window.location.pathname !== '';
 
     if (isNotFound) {
         return <NotFound />;
@@ -78,7 +120,6 @@ export default function App() {
                 }`}
             >
                 <Background />
-
                 <Navbar />
 
                 <main>
