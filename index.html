@@ -116,49 +116,55 @@
   <!-- End Microsoft Clarity -->
 
   <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
       {
-        "@context": "https://schema.org",
-        "@graph": [
-          {
-            "@type": "WebSite",
-            "@id": "https://ajas.qzz.io/#website",
-            "name": "Ajas",
-            "alternateName": [
-              "Muhammed Ajas P N",
-              "ajas.qzz.io"
-            ],
-            "url": "https://ajas.qzz.io/"
-          },
-          {
-            "@type": "WebPage",
-            "@id": "https://ajas.qzz.io/#webpage",
-            "url": "https://ajas.qzz.io/",
-            "name": "Muhammed Ajas P N — Web Developer & Programmer",
-            "description": "Ajas is a web developer building practical web apps with React, JavaScript, and Node.js while exploring backend systems and automation.",
-            "isPartOf": {
-              "@id": "https://ajas.qzz.io/#website"
-            },
-            "about": {
-              "@id": "https://ajas.qzz.io/#person"
-            }
-          },
-          {
-            "@type": "Person",
-            "@id": "https://ajas.qzz.io/#person",
-            "name": "Muhammed Ajas P N",
-            "url": "https://ajas.qzz.io/",
-            "jobTitle": "Web Developer & Programmer",
-            "description": "Web developer and programmer focused on building practical, modern web applications while exploring backend systems, automation, and software engineering.",
-            "image": "https://ajas.qzz.io/img/MyLogoIcon.png",
-            "sameAs": [
-              "https://github.com/ajas01862",
-              "https://www.linkedin.com/in/muhammed-ajas-p-n",
-              "https://www.instagram.com/ajas_1052/"
-            ]
-          }
+        "@type": "WebSite",
+        "@id": "https://ajas.qzz.io/#website",
+        "name": "Ajas",
+        "alternateName": "Muhammed Ajas P N",
+        "url": "https://ajas.qzz.io/",
+        "publisher": {
+          "@id": "https://ajas.qzz.io/#person"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://ajas.qzz.io/#webpage",
+        "url": "https://ajas.qzz.io/",
+        "name": "Muhammed Ajas P N — Web Developer & Programmer",
+        "description": "Muhammed Ajas P N's personal portfolio featuring web development projects, programming work, backend exploration, automation, and software engineering.",
+        "isPartOf": {
+          "@id": "https://ajas.qzz.io/#website"
+        },
+        "about": {
+          "@id": "https://ajas.qzz.io/#person"
+        },
+        "mainEntity": {
+          "@id": "https://ajas.qzz.io/#person"
+        }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://ajas.qzz.io/#person",
+        "name": "Muhammed Ajas P N",
+        "url": "https://ajas.qzz.io/",
+        "jobTitle": "Web Developer & Programmer",
+        "description": "Muhammed Ajas P N is a web developer and programmer focused on building practical web applications while exploring backend systems, automation, and software engineering.",
+        "image": "https://ajas.qzz.io/img/MyLogoIcon.png",
+        "mainEntityOfPage": {
+          "@id": "https://ajas.qzz.io/#webpage"
+        },
+        "sameAs": [
+          "https://github.com/ajas01862",
+          "https://www.linkedin.com/in/muhammed-ajas-p-n",
+          "https://www.instagram.com/ajas_1052/"
         ]
       }
-    </script>
+    ]
+  }
+</script>
 </head>
 
 <body>
