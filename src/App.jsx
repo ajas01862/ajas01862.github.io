@@ -49,13 +49,13 @@ export default function App() {
   useEffect(() => {
     document.title = isNotFound
       ? '404 — Page Not Found | Ajas'
-      : 'Ajas — Developer, Builder & Learner';
+      : 'Muhammed Ajas P N — Web Developer & Programmer';
 
     setMeta(
       'description',
       isNotFound
         ? 'The page you requested could not be found on Ajas’s portfolio.'
-        : 'Ajas is a developer building practical web applications with React and JavaScript while exploring backend systems, databases, automation, and software engineering.',
+        : 'Muhammed Ajas P N is a web developer and programmer building practical web applications with React, JavaScript, and Node.js while exploring backend systems, automation, and software engineering.',
     );
 
     setMeta(
