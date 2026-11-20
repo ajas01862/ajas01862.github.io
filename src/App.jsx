@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import Loader from './components/Loader/Loader';
 import Navbar from './components/Navbar/Navbar';
@@ -12,8 +13,15 @@ import NotFound from './Pages/404';
 
 const SITE_URL = 'https://ajas.qzz.io';
 
+const HOME_TITLE =
+  'Ajas | Muhammed Ajas P N — Web Developer & Programmer';
+
+const NOT_FOUND_TITLE = '404 — Page Not Found | Ajas';
+
 function setMeta(name, content) {
-  let element = document.head.querySelector(`meta[name="${name}"]`);
+  let element = document.head.querySelector(
+    `meta[name="${name}"]`,
+  );
 
   if (!element) {
     element = document.createElement('meta');
@@ -25,7 +33,9 @@ function setMeta(name, content) {
 }
 
 function setCanonical(pathname) {
-  let canonical = document.head.querySelector('link[rel="canonical"]');
+  let canonical = document.head.querySelector(
+    'link[rel="canonical"]',
+  );
 
   if (!canonical) {
     canonical = document.createElement('link');
@@ -36,7 +46,10 @@ function setCanonical(pathname) {
   const normalizedPath =
     pathname === '/' || pathname === '' ? '/' : pathname;
 
-  canonical.setAttribute('href', `${SITE_URL}${normalizedPath}`);
+  canonical.setAttribute(
+    'href',
+    `${SITE_URL}${normalizedPath}`,
+  );
 }
 
 export default function App() {
@@ -48,8 +61,8 @@ export default function App() {
 
   useEffect(() => {
     document.title = isNotFound
-      ? '404 — Page Not Found | Ajas'
-      : 'Muhammed Ajas P N — Web Developer & Programmer';
+      ? NOT_FOUND_TITLE
+      : HOME_TITLE;
 
     setMeta(
       'description',
@@ -96,7 +109,9 @@ export default function App() {
     if (document.readyState === 'complete') {
       finishLoading();
     } else {
-      window.addEventListener('load', finishLoading, { once: true });
+      window.addEventListener('load', finishLoading, {
+        once: true,
+      });
     }
 
     loadingFallback = window.setTimeout(finishLoading, 2500);
